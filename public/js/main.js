@@ -346,5 +346,5 @@ setInterval(function() { makeTimer(); }, 1000);
 
 setTimeout(function() {
 	main(jQuery);
-}, 100)
+}, 500)
 
