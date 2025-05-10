@@ -7,9 +7,6 @@ export interface ProductModel {
   image: string;
 }
 
-export interface CartModel {
-  [key: string]: {
-    product: ProductModel;
-    quantity: number;
-  };
+export type CartItem = ProductModel & {
+  quantity: number;
 }
