@@ -6,3 +6,10 @@ export interface ProductModel {
   status?: string;
   image: string;
 }
+
+export interface CartModel {
+  [key: string]: {
+    product: ProductModel;
+    quantity: number;
+  };
+}

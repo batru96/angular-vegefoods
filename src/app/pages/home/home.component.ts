@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ProductComponent } from '../../product/product.component';
-import { ProductService } from '../../product.service';
-import { ProductModel } from '../../models/product.model';
+import { ProductComponent } from '../../components/product/product.component';
+import { ProductService } from '../../services/product/product.service';
+import { ProductModel } from '../../models';
 
 @Component({
   selector: 'app-home',
