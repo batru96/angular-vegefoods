@@ -13,19 +13,19 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-xl-7 ftco-animate">
-        <form action="#" class="billing-form">
+        <form [formGroup]="checkoutForm" class="billing-form">
           <h3 class="mb-4 billing-heading">Billing Details</h3>
           <div class="row align-items-end">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="firstname">Firt Name</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" placeholder="" formControlName="firstName">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" placeholder="">
+                <input type="text" class="form-control" placeholder="" formControlName="lastName">
               </div>
             </div>
             <div class="w-100"></div>
@@ -34,13 +34,11 @@
                 <label for="country">State / Country</label>
                 <div class="select-wrap">
                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                  <select name="" id="" class="form-control">
-                    <option value="">France</option>
-                    <option value="">Italy</option>
-                    <option value="">Philippines</option>
-                    <option value="">South Korea</option>
-                    <option value="">Hongkong</option>
-                    <option value="">Japan</option>
+                  <select name="country" class="form-control">
+                    <option disabled>Select Country</option>
+                    @for (country of countries; track $index) {
+                      <option [value]="country">{{country}}</option>
+                    }
                   </select>
                 </div>
               </div>
@@ -151,7 +149,7 @@
                   </div>
                 </div>
               </div>
-              <p><a href="#" class="btn btn-primary py-3 px-4">Place an order</a></p>
+              <p><button [disabled]="!checkoutForm.valid" type="submit" class="btn btn-primary py-3 px-4">Place an order</button></p>
             </div>
           </div>
         </div>
