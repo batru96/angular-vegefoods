@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { ProductComponent } from '../../components/product/product.component';
+import { ProductPreviewComponent } from '../../components/product-preview/product-preview.component';
 import { ProductService } from '../../services/product/product.service';
 import { ProductModel } from '../../models';
 
 @Component({
   selector: 'app-home',
-  imports: [ProductComponent],
+  imports: [ProductPreviewComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -17,9 +17,4 @@ export class HomeComponent {
       this.ourProducts = data;
     });
   }
-
-  addToCart() {
-    console.log('Item added to cart');
-  }
-
 }

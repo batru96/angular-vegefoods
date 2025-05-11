@@ -18,9 +18,7 @@ export class CartService {
   });
 
   constructor() {
-    this.fetchCart();
     effect(() => {
-      console.log('Run effect', this.cart());
       localStorage.setItem('cart', JSON.stringify(this.cart()));
     });
   }
@@ -44,13 +42,11 @@ export class CartService {
     }
 
     const productIndex = this.cart().findIndex((item) => item.id === product.id);
-    console.log('productIndex', productIndex);
     if (productIndex === -1) {
       this.cart.update((prev) => [...prev, cartItem]);
     } else {
       const newCart = this.cart();
       newCart[productIndex].quantity += 1;
-      console.log('newCart', newCart);
       this.cart.set([...newCart]);
     }
   }

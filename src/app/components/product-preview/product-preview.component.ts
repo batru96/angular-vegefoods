@@ -3,12 +3,12 @@ import { ProductModel } from '../../models';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
-  selector: '[app-product]',
+  selector: '[app-product-preview]',
   imports: [],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  templateUrl: './product-preview.component.html',
+  styleUrl: './product-preview.component.css'
 })
-export class ProductComponent {
+export class ProductPreviewComponent {
   product = input.required<ProductModel>()
 
   constructor(private cartService: CartService) {}

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from "./components/nav/nav.component";
+import { CartService } from './services/cart/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,7 @@ import { NavComponent } from "./components/nav/nav.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-vegefoods';
+  constructor(private cartService: CartService) {
+    this.cartService.fetchCart();
+  }
 }

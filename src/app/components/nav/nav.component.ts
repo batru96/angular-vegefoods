@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
 
 @Component({
@@ -7,12 +7,8 @@ import { CartService } from '../../services/cart/cart.service';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
 
   constructor(public cartService: CartService) { 
-  }
-
-  ngOnInit(): void {
-    console.log('NavComponent initialized', this.cartService.getTotalItems());
   }
 }
