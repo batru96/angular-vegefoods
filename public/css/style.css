@@ -8779,6 +8779,7 @@ h1, h2, h3, h4, h5,
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
+        cursor: pointer;
         border-radius: 50%; }
       .product .text .bottom-area .m-auto {
         margin: 0 auto; }

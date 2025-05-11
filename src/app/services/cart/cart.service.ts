@@ -1,12 +1,10 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal, effect } from '@angular/core';
 import { CartItem, ProductModel } from '../../models';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   private cart = signal<CartItem[]>([]);
 
   private totalItems = computed(() => {
@@ -17,26 +15,50 @@ export class CartService {
     });
 
     return counter;
-  })
+  });
 
-  constructor(private httpClient: HttpClient) { 
-    this.fetchCart()
-  }
-
-  fetchCart() {
-    this.httpClient.get<CartItem[]>('/cart').subscribe(value => {
-      this.cart.set(value);
+  constructor() {
+    this.fetchCart();
+    effect(() => {
+      console.log('Run effect', this.cart());
+      localStorage.setItem('cart', JSON.stringify(this.cart()));
     });
   }
 
-  addToCart(product: ProductModel): void {
-    console.log('addToCart', product);
+  fetchCart() {
+    const cartStorage = localStorage.getItem('cart');
+    if (!cartStorage) return;
+
+    const cart = JSON.parse(cartStorage);
+
+    if (Array.isArray(cart)) {
+      this.cart.set(cart as CartItem[]);
+    }
+  }
+
+  addToCart({ priceSale, price, ...product}: ProductModel): void {
+    const cartItem: CartItem = {
+      ...product,
+      price: priceSale || price,
+      quantity: 1,
+    }
+
+    const productIndex = this.cart().findIndex((item) => item.id === product.id);
+    console.log('productIndex', productIndex);
+    if (productIndex === -1) {
+      this.cart.update((prev) => [...prev, cartItem]);
+    } else {
+      const newCart = this.cart();
+      newCart[productIndex].quantity += 1;
+      console.log('newCart', newCart);
+      this.cart.set([...newCart]);
+    }
   }
 
   getCart() {
     return this.cart();
   }
-  
+
   getTotalItems() {
     return this.totalItems();
   }

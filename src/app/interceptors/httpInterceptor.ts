@@ -2,7 +2,6 @@ import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export const httpInterceptor = function (req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>>  {
-  console.log('Request URL:', req);
   if (req.url.startsWith('http')) {
     return next(req);
   }

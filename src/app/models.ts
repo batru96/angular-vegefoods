@@ -7,6 +7,6 @@ export interface ProductModel {
   image: string;
 }
 
-export type CartItem = ProductModel & {
+export type CartItem = Omit<ProductModel, 'priceSale'> & {
   quantity: number;
 }

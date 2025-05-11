@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { ProductModel } from '../../models';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: '[app-product]',
@@ -10,7 +11,9 @@ import { ProductModel } from '../../models';
 export class ProductComponent {
   product = input.required<ProductModel>()
 
+  constructor(private cartService: CartService) {}
+
   addToCart() {
-    console.log('Product added to cart:', this.product);
+    this.cartService.addToCart(this.product());
   }
 }
