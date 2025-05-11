@@ -1,8 +1,8 @@
 export interface ProductModel {
   id: string;
   name: string;
-  price: string;
-  priceSale?: string;
+  price: number;
+  priceSale?: number;
   status?: string;
   image: string;
 }

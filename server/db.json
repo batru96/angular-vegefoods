@@ -4,81 +4,91 @@
       "id": "1",
       "status": "30%",
       "name": "Bell Pepper",
-      "price": "$120.00",
-      "priceSale": "$80.00",
-      "image": "images/product-1.jpg"
+      "price": 2.99,
+      "priceSale": 2.09,
+      "image": "images/product-1.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "2",
       "status": "",
       "name": "Strawberry",
-      "price": "$120.00",
+      "price": 3.99,
       "priceSale": "",
-      "image": "images/product-2.jpg"
+      "image": "images/product-2.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "3",
       "status": "",
       "name": "Green Beans",
-      "price": "$120.00",
+      "price": 5.49,
       "priceSale": "",
-      "image": "images/product-3.jpg"
+      "image": "images/product-3.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "4",
       "status": "",
       "name": "Purple Cabbage",
-      "price": "$95.00",
+      "price": 3.49,
       "priceSale": "",
-      "image": "images/product-4.jpg"
+      "image": "images/product-4.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "5",
       "status": "30$",
       "name": "Tomatoe",
-      "price": "$120.00",
-      "priceSale": "$80.00",
-      "image": "images/product-5.jpg"
+      "price": 2.99,
+      "priceSale": 2.09,
+      "image": "images/product-5.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "6",
       "status": "",
       "name": "Broccoli",
-      "price": "$130.00",
+      "price": 3.99,
       "priceSale": "",
-      "image": "images/product-6.jpg"
+      "image": "images/product-6.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "7",
       "status": "",
       "name": "Carrots",
-      "price": "$70.00",
+      "price": 1.5,
       "priceSale": "",
-      "image": "images/product-7.jpg"
+      "image": "images/product-7.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": "8",
       "status": "",
       "name": "Fruit Juice",
-      "price": "$65.00",
+      "price": 9.99,
       "priceSale": "",
-      "image": "images/product-8.jpg"
+      "image": "images/product-8.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   ],
   "cart": [
     {
       "id": "1",
       "name": "Bell Pepper",
-      "price": "$120.00",
+      "price": 1.99,
       "image": "images/product-1.jpg",
-      "quantity": 1
+      "quantity": 1,
+      "description": "Far far away, behind the word mountains, far from the countries"
     },
     {
       "id": "2",
       "name": "Strawberry",
-      "price": "$120.00",
+      "price": 4.99,
       "image": "images/product-2.jpg",
-      "quantity": 3
+      "quantity": 3,
+      "description": "Far far away, behind the word mountains, far from the countries"
     }
   ]
 }
