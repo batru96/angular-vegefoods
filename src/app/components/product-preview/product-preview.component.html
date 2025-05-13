@@ -1,5 +1,5 @@
 <div class="product">
-  <a routerLink="/product/1" class="img-prod"><img class="img-fluid" [src]="product().image" alt="Colorlib Template">
+  <a [routerLink]="['/product', product().id]" class="img-prod"><img class="img-fluid" [src]="product().image" alt="Colorlib Template">
     @if (product().status) {
     <span class="status">{{ product().status }}</span>
     }
