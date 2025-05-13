@@ -10,3 +10,7 @@ export interface ProductModel {
 export type CartItem = Omit<ProductModel, 'priceSale'> & {
   quantity: number;
 }
+
+export type AppConfig = {
+  currency: string;
+}

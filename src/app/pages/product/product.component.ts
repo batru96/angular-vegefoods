@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductModel } from '../../models';
+import { AppService } from '../../services/app/app.service';
 
 @Component({
   selector: 'app-product',
@@ -12,7 +13,7 @@ import { ProductModel } from '../../models';
 export class ProductComponent implements OnInit{
   product?: ProductModel;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, public appService: AppService) {
   }
 
   ngOnInit() {
