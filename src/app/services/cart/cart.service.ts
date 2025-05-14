@@ -58,4 +58,12 @@ export class CartService {
   getTotalItems() {
     return this.totalItems();
   }
+
+  removeItem(index: number) {
+    this.cart.update((prev) => {
+      const newCart = [...prev];
+      newCart.splice(index, 1);
+      return newCart;
+    })
+  }
 }

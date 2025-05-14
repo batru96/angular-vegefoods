@@ -8942,7 +8942,9 @@ h1, h2, h3, h4, h5,
     .table tbody tr td.product-remove a {
       bordeR: 1px solid rgba(0, 0, 0, 0.1);
       padding: 4px 10px;
-      color: #000000; }
+      color: #000000;
+      cursor: pointer;
+    }
       .table tbody tr td.product-remove a:hover {
         border: 1px solid #82ae46;
         background: #82ae46; }
