@@ -8,7 +8,7 @@
     >
       <div class="col-md-9 ftco-animate text-center">
         <p class="breadcrumbs">
-          <span class="mr-2"><a href="index.html">Home</a></span>
+          <span class="mr-2"><a routerLink="/">Home</a></span>
           <span>Cart</span>
         </p>
         <h1 class="mb-0 bread">My Cart</h1>
@@ -34,7 +34,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (cartItem of cartService.getCart(); track cartItem.id; let
+              @for (cartItem of cartService.cart(); track cartItem.id; let
               idx = $index) {
               <tr class="text-center">
                 <td class="product-remove">
@@ -56,17 +56,17 @@
                   </p>
                 </td>
 
-                <td class="price">{{ cartItem.price }}</td>
+                <td class="price">{{appService.getPriceFormatted(cartItem.price)}}</td>
 
                 <td class="quantity">
                   <div class="input-group mb-3">
                     <input
-                      type="text"
+                      type="number"
                       name="quantity"
                       class="quantity form-control input-number"
-                      [value]="cartItem.quantity"
+                      [(ngModel)]="cartItem.quantity"
+                      (ngModelChange)="onQuantityInputChange($event, idx)"
                       min="1"
-                      max="100"
                     />
                   </div>
                 </td>
@@ -141,20 +141,20 @@
           <h3>Cart Totals</h3>
           <p class="d-flex">
             <span>Subtotal</span>
-            <span>$20.60</span>
+            <span>{{appService.getPriceFormatted(cartService.getTotal())}}</span>
           </p>
           <p class="d-flex">
             <span>Delivery</span>
-            <span>$0.00</span>
+            <span class="delivery-fee">$15.99</span>
           </p>
           <p class="d-flex">
             <span>Discount</span>
-            <span>$3.00</span>
+            <span>$0.00</span>
           </p>
           <hr />
           <p class="d-flex total-price">
             <span>Total</span>
-            <span>$17.60</span>
+            <span>{{appService.getPriceFormatted(cartService.getTotal())}}</span>
           </p>
         </div>
         <p>

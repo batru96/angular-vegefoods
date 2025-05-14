@@ -5,17 +5,11 @@ import { CartItem, ProductModel } from '../../models';
   providedIn: 'root',
 })
 export class CartService {
-  private cart = signal<CartItem[]>([]);
+  private _cart = signal<CartItem[]>([]);
 
-  private totalItems = computed(() => {
-    let counter = 0;
-
-    this.cart().forEach((item) => {
-      counter += item.quantity;
-    });
-
-    return counter;
-  });
+  public get cart() {
+    return this._cart;
+  }
 
   constructor() {
     effect(() => {
@@ -34,14 +28,16 @@ export class CartService {
     }
   }
 
-  addToCart({ priceSale, price, ...product}: ProductModel): void {
+  addToCart({ priceSale, price, ...product }: ProductModel): void {
     const cartItem: CartItem = {
       ...product,
       price: priceSale || price,
       quantity: 1,
-    }
+    };
 
-    const productIndex = this.cart().findIndex((item) => item.id === product.id);
+    const productIndex = this.cart().findIndex(
+      (item) => item.id === product.id
+    );
     if (productIndex === -1) {
       this.cart.update((prev) => [...prev, cartItem]);
     } else {
@@ -51,12 +47,14 @@ export class CartService {
     }
   }
 
-  getCart() {
-    return this.cart();
-  }
-
   getTotalItems() {
-    return this.totalItems();
+    let counter = 0;
+
+    this.cart().forEach((item) => {
+      counter += item.quantity;
+    });
+
+    return counter;
   }
 
   removeItem(index: number) {
@@ -64,6 +62,25 @@ export class CartService {
       const newCart = [...prev];
       newCart.splice(index, 1);
       return newCart;
-    })
+    });
+  }
+
+  updateItemQuantity(index: number, quantity: number) {
+    const newCart = this.cart().map((item, idx) => {
+      if (index === idx) {
+        return {
+          ...item,
+          quantity,
+        };
+      }
+      return item;
+    });
+    this.cart.set(newCart);
+  }
+
+  getTotal() {
+    return this.cart().reduce((sum, item) => {
+      return sum + item.quantity * item.price
+    }, 0)
   }
 }

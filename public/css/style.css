@@ -8981,6 +8981,9 @@ h1, h2, h3, h4, h5,
     .cart-total p span {
       display: block;
       width: 50%; }
+    .cart-total p span.delivery-fee {
+      text-decoration: line-through;
+    }
     .cart-total p.total-price span {
       text-transform: uppercase; }
       .cart-total p.total-price span:last-child {
