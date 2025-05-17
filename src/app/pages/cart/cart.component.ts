@@ -8,11 +8,13 @@ const MAX_BUY = 100;
 
 @Component({
   selector: 'app-cart',
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule,],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
+  couponCode = ''
+
   constructor(public cartService: CartService, public appService: AppService) {
     console.log('CartComponent initialized', cartService.cart);
   }
@@ -35,5 +37,9 @@ export class CartComponent {
     } else {
       this.cartService.updateItemQuantity(0, 10);
     }
+  }
+
+  onSubmit() {
+    this.cartService.applyCoupon(this.couponCode)
   }
 }

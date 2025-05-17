@@ -14,3 +14,9 @@ export type CartItem = Omit<ProductModel, 'priceSale'> & {
 export type AppConfig = {
   currency: string;
 }
+
+export type Coupon = {
+  id: string;
+  name: string;
+  discount: number;
+}

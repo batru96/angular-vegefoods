@@ -1,17 +1,19 @@
 import { computed, Injectable, signal, effect } from '@angular/core';
-import { CartItem, ProductModel } from '../../models';
+import { CartItem, Coupon, ProductModel } from '../../models';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private _cart = signal<CartItem[]>([]);
+  private _discount: number = 0
 
   public get cart() {
     return this._cart;
   }
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     effect(() => {
       localStorage.setItem('cart', JSON.stringify(this.cart()));
     });
@@ -78,9 +80,27 @@ export class CartService {
     this.cart.set(newCart);
   }
 
-  getTotal() {
+  getSubTotal() {
     return this.cart().reduce((sum, item) => {
       return sum + item.quantity * item.price
     }, 0)
+  }
+
+  getTotal() {
+    return this.getSubTotal() - this.discount
+  }
+
+  get discount() {
+    return this._discount
+  }
+
+  applyCoupon(coupon: string) {
+    this.httpClient.get<Coupon[]>(`/coupons?name=${coupon.toUpperCase()}`).subscribe((data) => {
+      if (data[0]) {
+        this._discount = data[0].discount;
+      } else {
+        console.error('Not found coupon')
+      }
+    })
   }
 }

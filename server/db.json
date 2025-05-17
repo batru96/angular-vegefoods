@@ -93,5 +93,17 @@
   ],
   "config": {
     "currency": "$"
-  }
+  },
+  "coupons": [
+    {
+      "id": "coupon1",
+      "name": "COUPON_1",
+      "discount": 3
+    },
+    {
+      "id": "coupon2",
+      "name": "COUPON_2",
+      "discount": 5
+    }
+  ]
 }
