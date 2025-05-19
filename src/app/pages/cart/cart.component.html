@@ -34,7 +34,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (cartItem of cartService.cart(); track cartItem.id; let idx =
+              @for (cartItem of cartService.getCart(); track cartItem.id; let idx =
               $index) {
               <tr class="text-center">
                 <td class="product-remove">
@@ -157,7 +157,7 @@
           </p>
           <p class="d-flex">
             <span>Discount</span>
-            <span>{{appService.getPriceFormatted(cartService.discount)}}</span>
+            <span>{{appService.getPriceFormatted(cartService.getDiscount())}}</span>
           </p>
           <hr />
           <p class="d-flex total-price">

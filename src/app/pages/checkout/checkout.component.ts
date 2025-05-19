@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CartService } from '../../services/cart/cart.service';
+import { AppService } from '../../services/app/app.service';
 
 @Component({
   selector: 'app-checkout',
@@ -23,6 +25,9 @@ export class CheckoutComponent {
   })
 
   countries = ['China', 'France', 'Germany', 'Italy', 'Japan', 'South Korea', 'Spain', 'United Kingdom', 'United States', 'Vietnam'];
+
+  constructor(public cartService: CartService, public appService: AppService) {
+  }
   
 
   onSubmit() {

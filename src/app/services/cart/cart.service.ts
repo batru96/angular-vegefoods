@@ -6,17 +6,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CartService {
-  private _cart = signal<CartItem[]>([]);
-  private _discount: number = 0
-
-  public get cart() {
-    return this._cart;
-  }
+  private cart = signal<CartItem[]>([]);
+  private discount: number = 0
 
   constructor(private httpClient: HttpClient) {
     effect(() => {
       localStorage.setItem('cart', JSON.stringify(this.cart()));
     });
+  }
+
+  getCart() {
+    return this.cart();
   }
 
   fetchCart() {
@@ -87,17 +87,17 @@ export class CartService {
   }
 
   getTotal() {
-    return this.getSubTotal() - this.discount
+    return this.getSubTotal() - this.getDiscount()
   }
 
-  get discount() {
-    return this._discount
+  getDiscount() {
+    return this.discount
   }
 
   applyCoupon(coupon: string) {
     this.httpClient.get<Coupon[]>(`/coupons?name=${coupon.toUpperCase()}`).subscribe((data) => {
       if (data[0]) {
-        this._discount = data[0].discount;
+        this.discount = data[0].discount;
       } else {
         console.error('Not found coupon')
       }
