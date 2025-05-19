@@ -59,7 +59,7 @@
                 </td>
 
                 <td class="price">
-                  {{ appService.getPriceFormatted(cartItem.price) }}
+                  {{cartItem.price | currency }}
                 </td>
 
                 <td class="quantity">
@@ -75,7 +75,7 @@
                   </div>
                 </td>
 
-                <td class="total">{{ getItemTotalAsString(idx) }}</td>
+                <td class="total">{{getItemTotal(idx) | currency }}</td>
               </tr>
               }
             </tbody>
@@ -147,9 +147,7 @@
           <h3>Cart Totals</h3>
           <p class="d-flex">
             <span>Subtotal</span>
-            <span>{{
-              appService.getPriceFormatted(cartService.getSubTotal())
-            }}</span>
+            <span>{{cartService.getSubTotal() | currency}}</span>
           </p>
           <p class="d-flex">
             <span>Delivery</span>
@@ -157,14 +155,12 @@
           </p>
           <p class="d-flex">
             <span>Discount</span>
-            <span>{{appService.getPriceFormatted(cartService.getDiscount())}}</span>
+            <span>{{cartService.getDiscount() | currency }}</span>
           </p>
           <hr />
           <p class="d-flex total-price">
             <span>Total</span>
-            <span>{{
-              appService.getPriceFormatted(cartService.getTotal())
-            }}</span>
+            <span>{{cartService.getTotal() | currency}}</span>
           </p>
         </div>
         <p>

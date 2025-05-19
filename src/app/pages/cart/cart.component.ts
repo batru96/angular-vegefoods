@@ -1,29 +1,27 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
-import { AppService } from '../../services/app/app.service';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 const MAX_BUY = 100;
 
 @Component({
   selector: 'app-cart',
-  imports: [RouterLink, FormsModule,],
+  imports: [RouterLink, FormsModule, CurrencyPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
 export class CartComponent {
   couponCode = ''
 
-  constructor(public cartService: CartService, public appService: AppService) {
-    console.log('CartComponent initialized', cartService.cart);
+  constructor(public cartService: CartService) {
+    console.log('CartComponent initialized', cartService.getCart());
   }
 
-  public getItemTotalAsString(index: number): string {
-    const { price, quantity } = this.cartService.cart()[index];
-    const total = price * quantity;
-
-    return this.appService.getPriceFormatted(total);
+  public getItemTotal(index: number): number {
+    const { price, quantity } = this.cartService.getCart()[index];
+    return price * quantity;
   }
 
   remove(index: number): void {

@@ -2,18 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductModel } from '../../models';
-import { AppService } from '../../services/app/app.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit{
   product?: ProductModel;
 
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, public appService: AppService) {
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) {
   }
 
   ngOnInit() {

@@ -7,11 +7,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartService {
   private cart = signal<CartItem[]>([]);
-  private discount: number = 0
+  private discount = signal<number>(0);
 
   constructor(private httpClient: HttpClient) {
     effect(() => {
       localStorage.setItem('cart', JSON.stringify(this.cart()));
+    });
+
+    effect(() => {
+      localStorage.setItem('discount', this.getDiscount().toString());
     });
   }
 
@@ -91,13 +95,13 @@ export class CartService {
   }
 
   getDiscount() {
-    return this.discount
+    return this.discount()
   }
 
   applyCoupon(coupon: string) {
     this.httpClient.get<Coupon[]>(`/coupons?name=${coupon.toUpperCase()}`).subscribe((data) => {
       if (data[0]) {
-        this.discount = data[0].discount;
+        this.discount.set(data[0].discount);
       } else {
         console.error('Not found coupon')
       }
