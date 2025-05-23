@@ -1,0 +1,7 @@
+<label for="ABC">{{ getLabel() }}</label>
+<ng-content></ng-content>
+@if (control.touched) {
+  @if (control.getError('required')) {
+    <small class="text-danger form-text" [class.invisible]="false">{{ label() }} is required</small>
+  }
+}
