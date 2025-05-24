@@ -88,8 +88,15 @@
                       <div class="icon">
                         <span class="ion-ios-arrow-down"></span>
                       </div>
-                      <select id="province" name="province" class="form-control" formControlName="province">
-                        <option value="0" disabled>Select Province / City</option>
+                      <select
+                        id="province"
+                        name="province"
+                        class="form-control"
+                        formControlName="province"
+                      >
+                        <option value="0" disabled>
+                          Select Province / City
+                        </option>
                         @for (value of provinces; track $index) {
                         <option [value]="value.code">{{ value.name }}</option>
                         }
@@ -112,6 +119,7 @@
                       class="form-control"
                       placeholder="0123456789"
                       formControlName="phone"
+                      maxlength="10"
                     />
                   </app-form-control>
                 </div>
@@ -197,7 +205,11 @@
                   </div>
                 </div>
                 <p>
-                  <button type="submit" [disabled]="checkoutForm.invalid" class="btn btn-primary py-3 px-4">
+                  <button
+                    type="submit"
+                    [disabled]="checkoutForm.invalid"
+                    class="btn btn-primary py-3 px-4"
+                  >
                     Place an order
                   </button>
                 </p>
