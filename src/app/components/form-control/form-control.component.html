@@ -1,7 +1,13 @@
-<label for="ABC">{{ getLabel() }}</label>
+<label [htmlFor]="htmlFor()">{{ getLabel() }}</label>
 <ng-content></ng-content>
-@if (control.touched) {
-  @if (control.getError('required')) {
+@if (control().invalid && (control().touched || control().dirty)) {
+  @if (control().hasError('required')) {
     <small class="text-danger form-text" [class.invisible]="false">{{ label() }} is required</small>
+  } @else if (control().hasError('minlength')) {
+    <small class="text-danger form-text" [class.invisible]="false">{{ label() }} must be at least X characters long.</small>
+  } @else if (control().hasError('email')) {
+    <small class="text-danger form-text" [class.invisible]="false">Invalid email address</small>
+  } @else if (control().hasError('pattern')) {
+    <small class="text-danger form-text" [class.invisible]="false">Invalid pattern format</small>
   }
 }

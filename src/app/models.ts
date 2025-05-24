@@ -20,3 +20,9 @@ export type Coupon = {
   name: string;
   discount: number;
 }
+
+export type Province = {
+  code: number;
+  codename: string;
+  name: string;
+}

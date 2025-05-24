@@ -1,6 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, input, Input, computed } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-control',
@@ -9,8 +9,9 @@ import { FormControl, ValidationErrors } from '@angular/forms';
   styleUrl: './form-control.component.css'
 })
 export class FormControlComponent {
+  htmlFor = input<string>();
   label = input.required<string>();
-  @Input() control!: FormControl;
+  control = input.required<FormControl>();
 
   getLabel = computed(() => {
     return this.label() ? this.label() + '*' : 'Label';
