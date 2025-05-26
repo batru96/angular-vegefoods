@@ -1,0 +1,51 @@
+<section class="w-100 p-4 d-flex justify-content-center pb-4">
+  <form style="width: 22rem">
+
+    <!-- Submit button -->
+    <button
+      type="button"
+      (click)="login()"
+      class="btn btn-primary btn-block mb-4"
+    >
+      Sign in
+    </button>
+
+    <!-- Register buttons -->
+    <div class="text-center">
+      <p>Not a member? <a href="#!">Register</a></p>
+      <p>or sign up with:</p>
+      <button
+        
+        type="button"
+        class="btn btn-link btn-floating mx-1"
+      >
+        <i class="fab fa-facebook-f"></i>
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-link btn-floating mx-1"
+      >
+        <i class="fab fa-google"></i>
+      </button>
+
+      <button
+        type="button"
+        data-mdb-button-init
+        data-mdb-ripple-init
+        class="btn btn-link btn-floating mx-1"
+      >
+        <i class="fab fa-twitter"></i>
+      </button>
+
+      <button
+        type="button"
+        data-mdb-button-init
+        data-mdb-ripple-init
+        class="btn btn-link btn-floating mx-1"
+      >
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+  </form>
+</section>

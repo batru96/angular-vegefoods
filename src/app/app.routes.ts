@@ -7,38 +7,50 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { authGuard } from './auth.guard';
+import { LoginComponent } from './pages/login/login.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'cart',
-    component: CartComponent
+    component: CartComponent,
   },
   {
     path: 'checkout',
-    component: CheckoutComponent
+    component: CheckoutComponent,
   },
   {
     path: 'product/:id',
-    component: ProductComponent
+    component: ProductComponent,
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
   },
   {
     path: 'blog',
-    component: BlogComponent
+    component: BlogComponent,
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
   },
   {
     path: 'thank-you',
-    component: ThankYouComponent
+    component: ThankYouComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [authGuard],
   }
 ];

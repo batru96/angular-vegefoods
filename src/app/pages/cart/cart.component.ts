@@ -37,7 +37,7 @@ export class CartComponent {
     }
   }
 
-  onSubmit() {
+  applyCoupon() {
     this.cartService.applyCoupon(this.couponCode)
   }
 }
