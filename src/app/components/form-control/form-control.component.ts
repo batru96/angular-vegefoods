@@ -1,10 +1,9 @@
-import { JsonPipe } from '@angular/common';
 import { Component, input, Input, computed } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form-control',
-  imports: [JsonPipe],
+  imports: [],
   templateUrl: './form-control.component.html',
   styleUrl: './form-control.component.css'
 })
