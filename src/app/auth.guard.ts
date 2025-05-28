@@ -11,3 +11,13 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   }
 };
+
+export const canActiveLogin: CanActivateFn = (route, state) => {
+  const router = inject(Router)
+  
+  if (localStorage.getItem('token') === null) {
+    return true
+  } else {
+    return router.createUrlTree(['/'])
+  }
+}

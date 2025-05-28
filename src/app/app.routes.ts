@@ -7,7 +7,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
-import { authGuard } from './auth.guard';
+import { authGuard, canActiveLogin } from './auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
@@ -47,6 +47,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [canActiveLogin]
   },
   {
     path: 'profile',
