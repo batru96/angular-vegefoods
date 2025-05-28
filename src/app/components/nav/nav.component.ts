@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../../services/cart/cart.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+  constructor(public cartService: CartService, public authService: AuthService, private router: Router) {
+  }
 
-  constructor(public cartService: CartService) { 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

@@ -25,6 +25,11 @@
         <li class="nav-item"><a routerLink="contact" class="nav-link">Contact</a></li>
         <li class="nav-item cta cta-colored"><a routerLink="/cart" class="nav-link"><span
               class="icon-shopping_cart"></span>[{{ cartService.getTotalItems() }}]</a></li>
+        @if (authService.isLoggedIn()) {
+          <li class="nav-item cta cta-colored"><a class="nav-link" [routerLink]="[]" (click)="logout()">Logout</a></li>
+        } @else {
+          <li class="nav-item cta cta-colored"><a routerLink="/login" class="nav-link">Login</a></li>
+        }
       </ul>
     </div>
   </div>
